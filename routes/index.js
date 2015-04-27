@@ -9,7 +9,7 @@ router.use(function timeLog(res, res, next) {
 
 // Define the home page route
 router.get('/', function(req, res) {
-    res.render('../views/index.jade');
+    res.render('../views/layout.jade');
 });
 
 // Define the about page route
