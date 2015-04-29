@@ -23,7 +23,8 @@ app.use('/', router);
 var transporter = nodemailer.createTransport({
     service: 'MailGun',
     auth: {
-        
+        user: 'postmaster@sandbox8f74ffa23aae4bd7a160185c0149d6e4.mailgun.org',
+        pass: 'b212341abc2446f2d99e4a5fbe7f8384'
     }
 });
 

@@ -1,3 +1,4 @@
+//- contact.jade
 //- Contact Section
 section#contact.wrapper
     .container
@@ -5,6 +6,7 @@ section#contact.wrapper
             //- Section Header
             .section-header
                 h1 Say Something Friendly
+                .accent-line
             .section-body
                 .row
                     .col-md-6
@@ -27,9 +29,12 @@ section#contact.wrapper
                                 label.col-md-2.control-label(for='message-field') Message
                                 .col-md-10
                                     textarea#message-field.form-control(rows='5', placeholder='What is your message?')
-                            button#contact-submit.btn.btn-default Submit Form
+                            .form-group
+                                .col-md-4.col-md-offset-8
+                                    button#contact-submit.btn.btn-default Submit Form
+                                span.contact-success-overlay
                         hr
-                        .form-horizontal
+                        form.form-horizontal
                             .form-group
                                 label.col-md-2.control-label Email
                                 .col-md-10
