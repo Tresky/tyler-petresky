@@ -1,63 +1,72 @@
+// main.js
+// 
+// Client side JS file to handle client side assets
+// loading, interaction, and communication.
+// 
+// Tyler Petresky
+
 $(document).ready(function() {
     $('#main-nav').localScroll();
     $('#fixed-nav').localScroll();
     $('#footer-nav').localScroll();
     $('.intro-statement').localScroll();
 
-    // ar socket = io();
+    $('#contact-submit').click(function() {
 
-    // $('#contact-submit').click(function() {
-    //     data = {
-    //         name: $('#first-name-field').val() + ' ' + $('#last-name-field').val(),
-    //         from: $('#email-field').val(),
-    //         subject: $('#subject-field').val(),
-    //         text: $('#message-field').val()
-    //     };
-    //     socket.emit('contact submit', data);
-    // });
+        if (ValidateForm($('.contact-live'))) {
+            // Compile mail data from form.
+            var mail_data = {
+                name: $('#first-name-field').val() + ' ' + $('#last-name-field').val(),
+                from: $('#email-field').val(),
+                subject: $('#subject-field').val(),
+                text: $('#message-field').val()
+            };
 
-    // socket.on('contact success', function() {
-    //     $('#first-name-field').val('');
-    //     $('#last-name-field').val('');
-    //     $('#email-field').val('');
-    //     $('#subject-field').val('');
-    //     $('#message-field').val('');
+            // Outgoing Ajax request to the server to communicate form submission.
+            $.ajax({
+                url: 'http://localhost:3000/',
+                data: mail_data
+            }).done(function(status) {
+                console.log('Done AJAX: ' + status);
+                if (status == 'contact success') {
+                    // Successfully sent the email; let the user know.
+                    console.log('Successful sent email from: ' + mail_data.from);
 
-    //     $('#contact-submit').addClass('disabled fa fa-check contact-success-border').html(' Success');
-    //     $('#first-name-field').addClass('contact-success-border');
-    //     $('#last-name-field').addClass('contact-success-border');
-    //     $('#email-field').addClass('contact-success-border');
-    //     $('#subject-field').addClass('contact-success-border');
-    //     $('#message-field').addClass('contact-success-border');
-    //     window.setTimeout(function() {
-    //         $('#contact-submit').removeClass('disabled fa fa-check contact-success-border').html('Submit Form');
-    //         $('#first-name-field').removeClass('contact-success-border');
-    //         $('#last-name-field').removeClass('contact-success-border');
-    //         $('#email-field').removeClass('contact-success-border');
-    //         $('#subject-field').removeClass('contact-success-border');
-    //         $('#message-field').removeClass('contact-success-border');
-    //     }, 5000);
-    // });
+                    $('#contact-submit').addClass('disabled fa fa-check').html(' Success');
 
-    // socket.on('contact error', function() {
-    //     $('#contact-submit').addClass('disabled fa fa-exclamation contact-error-border').html(' Failed');
-    //     $('#first-name-field').addClass('contact-error-border');
-    //     $('#last-name-field').addClass('contact-error-border');
-    //     $('#email-field').addClass('contact-error-border');
-    //     $('#subject-field').addClass('contact-error-border');
-    //     $('#message-field').addClass('contact-error-border');
-    //     window.setTimeout(function() {
-    //         $('#contact-submit').removeClass('disabled fa fa-exclamation contact-error-border').html('Submit Form');
-    //         $('#first-name-field').removeClass('contact-error-border');
-    //         $('#last-name-field').removeClass('contact-error-border');
-    //         $('#email-field').removeClass('contact-error-border');
-    //         $('#subject-field').removeClass('contact-error-border');
-    //         $('#message-field').removeClass('contact-error-border');
-    //     }, 5000);
-    // });
+                    ApplyEffectToElement($('.contact-live'), 'contact-success-border', 5000);
+                    ClearGroup($('.contact-live'));
+                }
+                else {
+                    // Failed to send the email; let the user know.
+                    console.log('Failed to send email from: ' + mail_data.from);
 
+                    $('#contact-submit').addClass('fa fa-exclamation').html(' Failed');
+                    ApplyEffectToElement($('.contact-live'), 'contact-error-border', 5000);
+                    window.setTimeout(function() {
+                        $('#contact-submit').removeClass('fa fa-exclamation').html('Submit Form');
+                    }, 5000);
+                }
+            }).fail(function(jq_xhr, status) {
+                // AJAX query failed to execute properly.
+                console.log('Failed to execute AJAX: ' + status);
+
+                $('#contact-submit').addClass('fa fa-exclamation').html(' Failed');
+                ApplyEffectToElement($('.contact-live'), 'contact-error-border', 5000);
+                window.setTimeout(function() {
+                    $('#contact-submit').removeClass('fa fa-exclamation').html('Submit Form');
+                }, 5000);
+            });
+        }
+        else {
+            console.log('Form Invalid');
+        }
+    });
+
+    // Hide the portable nav while it is above the About Me section.
     $('#fixed-nav').removeClass().addClass('animated slideOutRight');
 
+    // When you cross the waypoint, toggle the portable nav.
     $('#about').waypoint(function(direction) {
         if (direction == 'down')
             $('#fixed-nav').removeClass().addClass('animated slideInRight');
@@ -65,3 +74,37 @@ $(document).ready(function() {
             $('#fixed-nav').removeClass().addClass('animated slideOutRight');
     });
 });
+
+function ValidateForm(group) {
+    var valid = true;
+    group.each(function(index) {
+        if ($(this).val() == '') {
+            valid = false;
+            $(this).addClass('contact-error-border');
+        }
+        else if($(this).hasClass('contact-error-border'))
+            $(this).removeClass('contact-error-border');
+    });
+    return valid;
+}
+
+// Applies user specified [classes] to the single or [group] of
+// elements specified for a specified [duration].
+function ApplyEffectToElement(group, classes, duration) {
+    group.each(function(index) {
+        $(this).addClass(classes);
+    });
+
+    window.setTimeout(function() {
+        group.each(function() {
+            $(this).removeClass(classes);
+        });
+    }, duration);
+}
+
+// Applies a value clear to a [group] of elements.
+function ClearGroup(group) {
+    group.each(function(index) {
+        $(this).val('');
+    });
+}
