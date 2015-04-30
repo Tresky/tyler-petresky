@@ -4,6 +4,7 @@ var body_parser = require('body-parser');
 //var http = require('http').Server(app);
 //var io = require('socket.io')(http);
 var nodemailer = require('nodemailer');
+var morgan = require('morgan');
 
 
 
@@ -15,6 +16,7 @@ var router = require('./routes/index.js');
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
+app.use(morgan('combined'));
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({
     extended: true
