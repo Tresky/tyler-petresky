@@ -42,17 +42,17 @@ var mail_options = {
 };
 
 ////////////////////////////////////
-app.post('/contactsubmit', function(req, res, next) {
-    req.form.complete(function(err, fields, files) {
-        if (err) { next(err); }
-        else {
-            console.log(fields);
-            console.log('----------------');
-            console.log(files);
-            res.redirect(req.url);
-        }
-    });
-});
+// app.post('/contactsubmit', function(req, res, next) {
+//     req.form.complete(function(err, fields, files) {
+//         if (err) { next(err); }
+//         else {
+//             console.log(fields);
+//             console.log('----------------');
+//             console.log(files);
+//             res.redirect(req.url);
+//         }
+//     });
+// });
 
 // Connection established with client
 // io.on('connection', function(socket){
