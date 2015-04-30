@@ -10,7 +10,7 @@ section#contact.wrapper
             .section-body
                 .row
                     .col-md-6
-                        form.form-horizontal
+                        form.form-horizontal(action='contactsubmit', method='post')
                             .form-group
                                 label.col-md-2.control-label(for='first-name-field') Name
                                 .col-md-5
@@ -29,8 +29,8 @@ section#contact.wrapper
                                 label.col-md-2.control-label(for='message-field') Message
                                 .col-md-10
                                     textarea#message-field.form-control(rows='5', placeholder='What is your message?')
-
-                        button#contact-submit.btn.btn-default Submit Form
+                            input(type='submit', value='Submit')
+                            //-button#contact-submit.btn.btn-default Submit Form
                         hr
                         form.form-horizontal
                             .form-group

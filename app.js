@@ -1,7 +1,8 @@
 var express = require('express'),
     app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var body_parser = require('body-parser');
+//var http = require('http').Server(app);
+//var io = require('socket.io')(http);
 var nodemailer = require('nodemailer');
 
 
@@ -14,10 +15,13 @@ var router = require('./routes/index.js');
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
+app.use(body_parser.json());
+app.use(body_parser.urlencoded({
+    extended: true
+}));
 
 // Routes
 app.use('/', router);
-
 
 // Transporter object for nodemailer to use with my MailGun account.
 var transporter = nodemailer.createTransport({
@@ -35,33 +39,46 @@ var mail_options = {
     text: ''
 };
 
-// Connection established with client
-io.on('connection', function(socket){
-    console.log('User Connected');
-
-    // Event triggers when a client disconnects from server.
-    socket.on('disconnect', function() {
-        console.log('User Disconnected');
-    });
-
-    // Event triggers when the contact form is submitted.
-    // Will send me an email with the contents of their message.
-    socket.on('contact submit', function(data) {
-        mail_options.from = data.name + ' <' + data.from + '>';
-        mail_options.subject = '[Website] ' + data.subject;
-        mail_options.text = data.text;
-        transporter.sendMail(mail_options, function(error, info) {
-            if(error) {
-                console.log(error);
-                socket.emit('contact error');
-            }
-            else {
-                console.log('Message sent: ' + info.response);
-                socket.emit('contact success');
-            }
-        });
+////////////////////////////////////
+app.post('/contactsubmit', function(req, res, next) {
+    req.form.complete(function(err, fields, files) {
+        if (err) { next(err); }
+        else {
+            console.log(fields);
+            console.log('----------------');
+            console.log(files);
+            res.redirect(req.url);
+        }
     });
 });
 
+// Connection established with client
+// io.on('connection', function(socket){
+//     console.log('User Connected');
+
+//     // Event triggers when a client disconnects from server.
+//     socket.on('disconnect', function() {
+//         console.log('User Disconnected');
+//     });
+
+//     // Event triggers when the contact form is submitted.
+//     // Will send me an email with the contents of their message.
+//     socket.on('contact submit', function(data) {
+//         mail_options.from = data.name + ' <' + data.from + '>';
+//         mail_options.subject = '[Website] ' + data.subject;
+//         mail_options.text = data.text;
+//         transporter.sendMail(mail_options, function(error, info) {
+//             if(error) {
+//                 console.log(error);
+//                 socket.emit('contact error');
+//             }
+//             else {
+//                 console.log('Message sent: ' + info.response);
+//                 socket.emit('contact success');
+//             }
+//         });
+//     });
+// });
+
 // Listen on port 3000
-http.listen(3000);
+app.listen(3000);
