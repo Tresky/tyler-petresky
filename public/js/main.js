@@ -14,6 +14,8 @@ $(document).ready(function() {
     $('#contact-submit').click(function() {
 
         if (ValidateForm($('.contact-live'))) {
+            console.log('Form Valid');
+
             // Compile mail data from form.
             var mail_data = {
                 name: $('#first-name-field').val() + ' ' + $('#last-name-field').val(),

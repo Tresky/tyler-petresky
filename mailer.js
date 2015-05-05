@@ -4,8 +4,7 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'MailGun',
     auth: {
-        user: 'user',
-        pass: 'pass'
+        
     }
 });
 
