@@ -26,7 +26,7 @@ $(document).ready(function() {
 
             // Outgoing Ajax request to the server to communicate form submission.
             $.ajax({
-                url: 'http://localhost:3000/',
+                url: 'http://tylerpetresky.com/',
                 data: mail_data
             }).done(function(status) {
                 console.log('Done AJAX: ' + status);
