@@ -1,0 +1,38 @@
+//- blog-list.jade
+
+extends ../blog-layout.jade
+
+block content
+    #blog-photo.parallax-window(data-parallax='scroll', data-image-src='../img/bg1-o.jpg')
+            span.mask-overlay
+            include ../includes/blog-navbar.jade
+            .container
+                .row
+                    section.col-md-8(class=['col-md-offset-2', 'intro-statement'])
+                        .intro-head
+                            .intro-line-1
+                                span WELCOME TO MY BLOG
+
+    .articles-list.container
+        - each article in articles
+            .article-list-card
+                .article-list-title
+                    h1: a(href="/blog/" + article.rowid)!= article.title
+                .article-below-title
+                    .article-author Tyler Petresky 
+                    time.article-timestamp  #{moment(article.timestamp).format('MMMM Do YYYY')}
+                .article-preview-photo
+                h4.article-list-preview= article.preview
+
+                .article-list-more: a(href="blog/" + article.rowid) Read More
+                    
+
+
+
+
+
+                    //- div.article.section
+                    //-     div.created_at= article.created_at
+                    //-     div.sectiontitle 
+                    //-         a(href="/blog/" + article._id.toHexString())!= article.title
+                    //-     div.body= article.body

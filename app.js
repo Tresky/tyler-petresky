@@ -3,7 +3,7 @@ var body_parser = require('body-parser');
 var morgan = require('morgan');
 var moment = require('moment');
 
-var router = require('./routes/index.js');
+var router = require('./routes/routes.js');
 
 app.locals.moment = moment;
 
@@ -18,7 +18,7 @@ app.use(body_parser.urlencoded({
 }));
 
 // Routes
-app.use('/', router);
+app.use(router);
 
 // Listen on port 3000
 app.listen(3000);

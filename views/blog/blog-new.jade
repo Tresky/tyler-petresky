@@ -1,0 +1,41 @@
+//- blog-new.jade
+
+extends ../blog-layout.jade
+
+block content
+    #blog-photo.parallax-window(data-parallax='scroll', data-image-src='../img/bg1-o.jpg')
+            span.mask-overlay
+            include ../includes/blog-navbar.jade
+            .container
+                .row
+                    section.col-md-8(class=['col-md-offset-2', 'intro-statement'])
+                        .intro-head
+                            .intro-line-1
+                                span New Post
+
+    .container-fluid
+        .row
+            form.form-horizontal(method='post', action='/blog/new')
+                .form-group
+                    .row
+                        label.col-md-1.control-label(for='edit-article-title') Title
+                        .col-md-5
+                            input.form-control(type='text', name='title', id='edit-article-title')
+
+                        label.col-md-1.control-label(for='edit-article-preview') Preview
+                        .col-md-5
+                            input.form-control(type='text', name='preview', id='edit-article-preview')
+
+                    .row
+                        label.col-md-1.control-label(for='edit-article-body') Body
+                        label.col-md-1.col-md-offset-5.control-label(for='article-markdown') Markdown
+
+                    .row
+                        .col-md-6
+                            textarea.form-control(name='body' id='edit-article-body')
+                        .col-md-6
+                            .form-control(id='article-markdown')
+
+                    .row
+                        .col-md-12
+                            button.btn.btn-default(type='submit', id='edit-article-submit') Submit Post

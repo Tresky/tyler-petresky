@@ -1,5 +1,4 @@
 /* Bootstrap Overrides */
-
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -44,6 +43,58 @@ input[type="color"]:focus,
     bottom: 0;
     left: 0;
     z-index: 100;
+}
+
+#fixed-nav {
+    position: fixed;
+    top: 20%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+
+    /* link */
+    #fixed-nav .nav > li > a {
+        color: #fff;
+        text-shadow: none;
+        -webkit-transition: 0.3s;
+           -moz-transition: 0.3s;
+             -o-transition: 0.3s;
+                transition: 0.3s;
+    }
+    #fixed-nav .nav > li > a:hover,
+    #fixed-nav .nav > li > a:focus {
+        color: #00b3b5;
+        text-shadow: none;
+        background-color: rgba(0, 0, 0, 0.0);
+        -webkit-transition: 0.3s;
+           -moz-transition: 0.3s;
+             -o-transition: 0.3s;
+                transition: 0.3s;
+    }
+    #fixed-nav .nav > .active > a, 
+    #fixed-nav .nav > .active > a:hover, 
+    #fixed-nav .nav > .active > a:focus {
+        color: #00b3b5;
+        background-color: rgba(0, 0, 0, 0.0);
+        -webkit-transition: 0.3s;
+           -moz-transition: 0.3s;
+             -o-transition: 0.3s;
+                transition: 0.3s;
+    }
+
+textarea {
+    resize: none;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ccc !important;
 }
 
 /* navbar */
@@ -153,59 +204,6 @@ input[type="color"]:focus,
     }
 }
 
-#fixed-nav {
-    position: fixed;
-    top: 20%;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
-    -webkit-animation-duration: 0.5s;
-    -moz-animation-duration: 0.5s;
-    -o-animation-duration: 0.5s;
-    animation-duration: 0.5s;
-}
-
-    /* link */
-    #fixed-nav .nav > li > a {
-        color: #fff;
-        text-shadow: none;
-        -webkit-transition: 0.3s;
-           -moz-transition: 0.3s;
-             -o-transition: 0.3s;
-                transition: 0.3s;
-    }
-    #fixed-nav .nav > li > a:hover,
-    #fixed-nav .nav > li > a:focus {
-        color: #00b3b5;
-        text-shadow: none;
-        background-color: rgba(0, 0, 0, 0.0);
-        -webkit-transition: 0.3s;
-           -moz-transition: 0.3s;
-             -o-transition: 0.3s;
-                transition: 0.3s;
-    }
-    #fixed-nav .nav > .active > a, 
-    #fixed-nav .nav > .active > a:hover, 
-    #fixed-nav .nav > .active > a:focus {
-        color: #00b3b5;
-        background-color: rgba(0, 0, 0, 0.0);
-        -webkit-transition: 0.3s;
-           -moz-transition: 0.3s;
-             -o-transition: 0.3s;
-                transition: 0.3s;
-    }
-
-textarea {
-    resize: none;
-}
-
-hr {
-    border: 0;
-    height: 1px;
-    background-color: #ccc !important;
-}
-
-
 
 
 
@@ -296,6 +294,9 @@ section.bg1 {
     border-top-color: #008f9d;
 }
 
+.full-height {
+    height: 100%;
+}
 
 
 
@@ -387,7 +388,6 @@ body {
 }
 
     .section-header h1 {
-        text-align: center;
         font-family: 'Maven Pro', sans-serif;
     }
 
@@ -414,7 +414,7 @@ body {
     }
 
     .section-body a:visited {
-        color: #008f9d;
+        color: #00b3b5;
         -webkit-transition: 0.3s;
            -moz-transition: 0.3s;
              -o-transition: 0.3s;
@@ -508,3 +508,185 @@ footer {
              -o-transition: 0.3s;
                 transition: 0.3s;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Blog Section */
+#blog-photo {
+    background-size: cover;
+    height: 73%;
+    overflow: hidden;
+    position: relative;
+}
+
+.article, .articles-list {
+    margin-top: 75px;
+    padding: 0 200px 50px 200px;
+}
+
+    .article-list-more {
+        margin-bottom: 75px;
+    }
+
+    .article-list-more a {
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 12px;
+        color: gray;
+        -webkit-transition: 0.3s;
+           -moz-transition: 0.3s;
+             -o-transition: 0.3s;
+                transition: 0.3s;
+    }
+
+    .article-list-more a:hover {
+        color: black;
+        text-decoration: none;
+        -webkit-transition: 0.3s;
+           -moz-transition: 0.3s;
+             -o-transition: 0.3s;
+                transition: 0.3s;
+    }
+
+    .article-list-more a:visited {
+        -webkit-transition: 0.3s;
+           -moz-transition: 0.3s;
+             -o-transition: 0.3s;
+                transition: 0.3s;
+    }
+
+    .article-title {
+
+    }
+
+        .article-list-title h1 {
+            font-family: 'Maven Pro', sans-serif;
+        }
+
+        .article-list-title h1 a {
+            color: #00b3b5;
+            -webkit-transition: 0.3s;
+               -moz-transition: 0.3s;
+                 -o-transition: 0.3s;
+                    transition: 0.3s;
+        }
+
+        .article-list-title h1 a:hover {
+            text-decoration: none;
+            color: #008f9d;
+            -webkit-transition: 0.3s;
+               -moz-transition: 0.3s;
+                 -o-transition: 0.3s;
+                    transition: 0.3s;
+        }
+
+        .article-list-title h1 a:visited {
+            color: #008f9d;
+            -webkit-transition: 0.3s;
+               -moz-transition: 0.3s;
+                 -o-transition: 0.3s;
+                    transition: 0.3s;
+        }
+
+    .article-below-title {
+        color: gray;
+        margin-top: 10px;
+        width: 100%;
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 12px;
+    }
+
+        .article-author {
+            display: inline;
+        }
+
+        .article-timestamp {
+            
+        }
+
+        .article-timestamp:before {
+            content: '\00B7';
+            padding: 0 0.5em;
+        }
+
+    .article-list-preview {
+        line-height: 175%;
+    }
+
+    .article-body {
+        margin-top: 25px;
+        font-family: 'Maven Pro', sans-serif;
+    }
+
+        .article-body a {
+            color: #00b3b5;
+            -webkit-transition: 0.3s;
+               -moz-transition: 0.3s;
+                 -o-transition: 0.3s;
+                    transition: 0.3s;
+        }
+
+        .article-body a:hover {
+            text-decoration: none;
+            color: #008f9d;
+            -webkit-transition: 0.3s;
+               -moz-transition: 0.3s;
+                 -o-transition: 0.3s;
+                    transition: 0.3s;
+        }
+
+        .article-body a:visited {
+            color: #008f9d;
+            -webkit-transition: 0.3s;
+               -moz-transition: 0.3s;
+                 -o-transition: 0.3s;
+                    transition: 0.3s;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+#new-post-block {
+    height: 700px;
+}
+
+    .new-post-header {
+        margin: 50px 200px 50px 200px;
+    }
+
+    .new-post-body {
+        margin-top: 50px;
+        font-family: 'Maven Pro', sans-serif;
+        overflow: auto;
+    }
+
+#pad {
+    font-family: "Open Sans", sans-serif;
+    height: auto;
+    /*width: 100%;*/
+}
+
+/*textarea.form-control {
+    height: 100%;
+}*/
+
+#markdown {
+    overflow: auto;
+    border-left: 1px solid black;
+}
