@@ -1,0 +1,43 @@
+//- contact.jade
+//- Contact Section
+section#contact.section.container
+    //- Section Header
+    .section-header.col-sm-12
+        h1 Say Something Friendly
+        .accent-line
+    .section-body.col-sm-12
+        .col-md-6.col-sm-12
+            form.form-horizontal
+                .form-group
+                    label.col-md-2.col-sm-12.control-label(for='first-name-field') Name
+                    .col-md-5
+                            input#first-name-field.contact-live.form-control(type='text', placeholder='First Name')
+                    .col-md-5
+                            input#last-name-field.contact-live.form-control(type='text', placeholder='Last Name')
+                .form-group
+                    label.col-md-2.col-sm-12.control-label(for='email-field') Email
+                    .col-md-10
+                        input#email-field.contact-live.form-control(type='email', placeholder='Email Address')
+                .form-group
+                    label.col-md-2.control-label(for='subject-field') Subject
+                    .col-md-10
+                        input#subject-field.contact-live.form-control(type='text', placeholder='Subject')
+                .form-group
+                    label.col-md-2.control-label(for='message-field') Message
+                    .col-md-10
+                        textarea#message-field.contact-live.form-control(rows='5', placeholder='What is your message?')
+                //-input(type='submit', value='Submit')
+            button#contact-submit.btn.btn-default Submit Form
+            hr
+            form.form-horizontal
+                .form-group
+                    label.col-md-2.control-label Email
+                    .col-md-10
+                        p.form-control-static hello@tylerpetresky.com
+                .form-group
+                    label.col-md-2.control-label Phone
+                    .col-md-10
+                        p.form-control-static 850.572.7440
+
+        .col-md-6.col-sm-12
+            img.img-responsive(src='http://d3g78hpe9ftrut.cloudfront.net/bg/head-contact0_2.jpg')

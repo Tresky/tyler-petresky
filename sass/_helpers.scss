@@ -1,0 +1,94 @@
+//--------------------------------
+//
+// SETTINGS
+//
+//--------------------------------
+
+// Color settings
+$tp-blue: #00b3b5;
+$tp-blue-visited: #00797a;
+
+// Misc settings
+$trans-time: 0.3s;
+
+// Bootstrap settings
+$screen-xs-max: 767px;
+$screen-sm-max: 991px;
+$screen-md-max: 1200px;
+
+
+//---------------------------------
+//
+// HELPERS
+//
+//---------------------------------
+
+// Helper mixins
+@mixin transition($time) {
+    -webkit-transition: $time;
+       -moz-transition: $time;
+         -o-transition: $time;
+            transition: $time;
+}
+
+@mixin animation-duration($time) {
+    -webkit-animation-duration: $time;
+       -moz-animation-duration: $time;
+         -o-animation-duration: $time;
+            animation-duration: $time;
+}
+
+// Helper classes
+.accent-diamond {
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-bottom-color: #00b3b5;
+    position: relative;
+    top: -7px;
+
+    margin-left: 49.5%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: -7px;
+        top: 7px;
+        width: 0;
+        height: 0;
+        border: 7px solid transparent;
+        border-top-color: #008f9d;
+    }
+}
+
+.accent-line {
+    width: 6%;
+    height: 2px;
+    background-color: #00b3b5;
+    margin-left: 47%;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.hover-line {
+    display: inline;
+    color: white;
+    @include transition($trans-time);
+
+    &:hover {
+        color: #00b3b5;
+        @include transition($trans-time);
+    }
+}
+
+.mask-overlay {
+    background-color: rgba(0, 0, 0, 0.05);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+}

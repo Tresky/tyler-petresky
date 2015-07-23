@@ -1,0 +1,30 @@
+@import 'helpers';
+
+#fixed-nav {
+    position: fixed;
+    top: 20%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    @include animation-duration(0.5s);
+
+    .nav > li > a {
+        color: #fff;
+        text-shadow: none;
+        @include transition($trans-time);
+
+        &:focus, &:hover {
+            color: $tp-blue;
+            background-color: rgba(0, 0, 0, 0.0);
+            @include transition($trans-time);
+        }
+    }
+
+    .nav > .active > a,
+    .nav > .active > a:hover,
+    .nav > .active > a:focus {
+        color: $tp-blue;
+        background-color: rgba(0, 0, 0, 0.0);
+        @include transition($trans-time);
+    }
+}

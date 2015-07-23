@@ -1,0 +1,40 @@
+// _footer.scss
+// SCSS partial theme for the footer
+
+@import 'helpers';
+
+// Styles
+footer {
+    background-color: #444;
+    color: white;
+    height: 200px;
+    text-align: center;
+    padding-top: 40px;
+
+    a {
+        color: white;
+        padding-left: 15px;
+        text-decoration: none;
+        @include transition($trans-time);
+
+        &:hover {
+        color: #00b3b5;
+        background-color: rgba(0, 0, 0, 0.0);
+        @include transition($trans-time);
+        }
+    }
+
+    @media (max-width: $screen-xs-max) {
+        .social-links {
+            margin: 25px 0 20px 0;
+
+            a {
+                padding: 0 18px 0 18px;
+            }
+        }
+
+        #footer-nav {
+            display: none;
+        }
+    }
+}

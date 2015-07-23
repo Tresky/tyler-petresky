@@ -9,7 +9,8 @@ gulp.task('default', ['nodemon', 'browser-sync'], function () {
 gulp.task('browser-sync' , function() {
     var files = [
         'public/**/*.*',
-        'views/**/*.*'
+        'views/**/*.*',
+        'sass/**/*.*'
     ];
 
     browser_sync.init(files, {

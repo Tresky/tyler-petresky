@@ -1,0 +1,75 @@
+@import 'helpers';
+
+.nav-theme {
+    background-color: rgba(0, 0, 0, 0.0);
+    border-color: rgba(0, 0, 0, 0.0);
+    padding: 15px;
+    font-size: 1.05em;
+    font-weight: bold;
+    z-index: 100;
+
+    .navbar-brand {
+        color: #fff;
+        text-shadow: none;
+        @include transition($trans-time);
+
+        &:hover, &:focus {
+            color: $tp-blue;
+            @include transition($trans-time);
+        }
+    }
+
+    .navbar-nav > li > a {
+        color: #fff;
+        text-shadow: none;
+        @include transition($trans-time);
+
+        &:hover, &:focus {
+            color: $tp-blue;
+            background-color: rgba(0, 0, 0, 0.0);
+            @include transition($trans-time);
+        }
+    }
+
+    .navbar-nav > .active > a
+    .navbar-nav > .active > a:hover,
+    .navbar-nav > .active > a:focus {
+        color: $tp-blue;
+        background-color: rgba(0, 0, 0, 0.0);
+        @include transition($trans-time);
+    }
+
+    .navbar-nav > .open > a,
+    .navbar-nav > .open > a:hover,
+    .navbar-nav > .open > a:focus {
+        color: $tp-blue;
+        background-color: rgba(0, 0, 0, 0.0);
+        @include transition($trans-time);
+    }
+
+    .navbar-toggle {
+        border-color: #fff;
+
+        &:hover, &:focus {
+            background-color: #fff;
+
+            .icon-bar {
+                background-color: #888;
+            }
+        }
+
+        .icon-bar {
+            background-color: #fff;
+        }
+    }
+
+    @media (max-width: $screen-xs-max) {
+        .navbar-nav .open .dropdown-menu > li > a {
+            color: #777;
+
+            &:hover, &:focus {
+                color: #333;
+            }
+        }
+    }
+}

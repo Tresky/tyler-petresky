@@ -1,11 +1,11 @@
 //- blog-new.jade
 
-extends ../blog-layout.jade
+extends ./blog-layout.jade
 
 block content
     #blog-photo.parallax-window(data-parallax='scroll', data-image-src='../img/bg1-o.jpg')
             span.mask-overlay
-            include ../includes/blog-navbar.jade
+            include ./includes/blog-navbar.jade
             .container
                 .row
                     section.col-md-8(class=['col-md-offset-2', 'intro-statement'])
