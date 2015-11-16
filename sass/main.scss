@@ -22,10 +22,6 @@ html, body {
     font-family: $primary-font-stack;
 }
 
-body {
-    //position: relative;
-}
-
 #homepage {
     background-size: cover;
     height: 100%;
@@ -34,12 +30,14 @@ body {
 
     .intro-statement {
         border-radius: 10px;
-        height: 38%;
-        top: 36% - (38 / 2);
+        //height: 39%;
+        top: 50%;
         padding: 2.5% 1% 2% 1%;
         background-color: rgba(0, 0, 0, 0.7);
         text-align: center;
         font-family: $intro-font-stack;
+        position: absolute;
+        transform: translateY(-50%);
 
         .intro-line-1 {
             color: white;
