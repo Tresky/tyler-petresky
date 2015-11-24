@@ -17,12 +17,12 @@ block content
         - each article in articles
             .article-list-card
                 .article-list-title
-                    h1: a(href="/blog/" + article.rowid)!= article.title
+                    a(href='/blog/' + article.rowid)!= article.title
                 .article-below-title
                     .article-author Tyler Petresky 
-                    time.article-timestamp  #{moment(article.timestamp).format('MMMM Do YYYY')}
+                    time.article-timestamp #{moment(article.timestamp).format('MMMM Do YYYY')}
                 .article-preview-photo
-                h4.article-list-preview= article.preview
+                h4.article-list-preview!= article.preview
 
                 .article-list-more: a(href="blog/" + article.rowid) Read More
                     

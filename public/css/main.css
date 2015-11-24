@@ -350,12 +350,13 @@ html, body {
   position: relative; }
   #homepage .intro-statement {
     border-radius: 10px;
-    height: 38%;
-    top: 17%;
+    top: 50%;
     padding: 2.5% 1% 2% 1%;
     background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
-    font-family: "Montserrat", sans-serif; }
+    font-family: "Montserrat", sans-serif;
+    position: absolute;
+    transform: translateY(-50%); }
     #homepage .intro-statement .intro-line-1 {
       color: white;
       font-size: 3em;
