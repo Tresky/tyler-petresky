@@ -37,7 +37,10 @@ $(document).ready(function() {
                     $('#contact-submit').addClass('disabled fa fa-check').html(' Success');
 
                     ApplyEffectToElement($('.contact-live'), 'contact-success-border', 5000);
-                    ClearGroup($('.contact-live'));
+                    window.setTimeout(function() {
+                        $('#contact-submit').removeClass('disabled fa fa-check').html('Submit Form');
+                    }, 5000);
+                    //ClearGroup($('.contact-live'));
                 }
                 else {
                     // Failed to send the email; let the user know.
