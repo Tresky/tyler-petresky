@@ -1,8 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var browser_sync = require('browser-sync').create();
 var nodemon = require('gulp-nodemon');
-var reload = browser_sync.reload;
 var path = require('path')
 
 gulp.task('default', ['nodemon'], function () {

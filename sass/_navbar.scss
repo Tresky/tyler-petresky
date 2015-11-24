@@ -11,6 +11,8 @@
     .navbar-brand {
         color: #fff;
         text-shadow: none;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.7);
         @include transition($trans-time);
 
         &:hover, &:focus {
@@ -19,9 +21,21 @@
         }
     }
 
+    .navbar-nav > li {
+        &:first-child a {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px; 
+        }
+        &:last-child a {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px; 
+        }
+    }
+
     .navbar-nav > li > a {
         color: #fff;
         text-shadow: none;
+        background-color: rgba(0, 0, 0, 0.7);
         @include transition($trans-time);
 
         &:hover, &:focus {
